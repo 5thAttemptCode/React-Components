@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Neue Montreal;
+}
+
+body{
+  background: #eeeeee;
+}
+
+.page{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: 600;
+  background: #eeeeee;
+  backdrop-filter: blur(50px);
+  color: rgb(6, 1, 64);;
+}
