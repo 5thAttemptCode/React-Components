@@ -1,0 +1,19 @@
+.dropdown{
+  position: relative;
+  
+  button{
+    
+    .caret{
+      position: relative;
+      transition: all 0.2s;
+      top: 0.15rem
+    }
+  }
+  
+  .dropdown-menu{
+    position: absolute;
+    flex-direction: column;
+    border: 1px solid black;
+    padding-block: 0.5em;
+  }
+}

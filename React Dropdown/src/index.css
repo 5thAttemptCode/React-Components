@@ -2,37 +2,4 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Poppins;
-}
-
-nav{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-h3{
-  background: #060140;
-  color: #fff;
-  padding: 15px 25px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-weight: 400;
-}
-
-li {
-  padding: 15px 25px;
-  transition: all linear 0.2s;
-  list-style: none;
-}
-
-li:hover {
-  background: rgb(6, 1, 65, 0.5);
-  color: #fff;
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  background: rgb(6, 1, 65, 0.1);
 }
