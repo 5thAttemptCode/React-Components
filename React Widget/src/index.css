@@ -1,89 +1,36 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+body{
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #eeeeee;
-  font-family: "Poppins";
 }
 
-:root {
-  --color-primary: #060140;
-  --color-second: #ffffff;
-  --sidebar-width: 140px;
-  --menu-height: 190px;
+.widget-card{
+  width: 500px;
+
+  .widget-buttons{
+    display: flex;
+  }
 }
 
-.card {
-  display: flex;
-  padding-inline: 20px;
-  width: 480px;
-  height: var(--menu-height);
-  border-radius: 10px;
-  background: var(--color-second);
-  transition: 0.3s;
-}
-
-.buttons {
-  padding-top: 20px;
-  padding-inline-end: 20px;
-  width: var(--sidebar-width);
-  border-right: 1px solid #eeeeee;
-}
-
-.buttons button {
-  width: 100%;
-  font-size: 14px;
-  font-weight: 600;
-  padding-block: 11px;
-  padding-inline-start: 1em;
-  background: none;
-  border-radius: 6px;
-  border: 0;
-  display: flex;
-  align-items: center;
+.button{
+  flex: 1;
+  padding-block: 0.5rem;
+  margin-bottom: 1rem;
   cursor: pointer;
+  
+  &.active{
+    background: rgb(153, 153, 227);
+  }
 }
 
-.buttons button.active {
-  background: var(--color-primary);
-  color:  var(--color-second);
-}
-
-.wrapper {
-  position: relative;
-  overflow: hidden;
-  flex: 1 1 auto;
-}
-
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: calc(var(--menu-height) * 3);
-  transition: 0.3s;
-}
-
-.block {
-  padding: 20px;
-  height: var(--menu-height);
-}
-
-.block h2 {
-  margin-bottom: 0.3em;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.block p {
-  font-size: 13px;
-  line-height: 1.7;
-  opacity: 0.5;
+h3{
+  margin-bottom: 0.5rem;
 }
