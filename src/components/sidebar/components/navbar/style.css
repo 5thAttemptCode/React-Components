@@ -1,0 +1,52 @@
+.hamburger{
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+nav{
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px;
+  height: 100vh;
+  background: #060140;
+  transition: all 0.5s;
+  z-index: 10;
+
+  &.active{
+    left: 0;
+  }
+
+  .close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  > ul{
+    margin-top: 5rem;
+    padding-inline: 1rem;
+
+    li{
+      a{
+        color: #ffffff;
+        font-size: 18px;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 4px;
+        padding-block: 0.75rem;
+        padding-inline-start: 1rem;
+        margin-top: 0.75rem;
+    
+        &:hover{
+          background: rgb(255, 255, 255, 0.4);
+        }
+      }
+    }
+  }
+}
