@@ -10,16 +10,13 @@ export default function Widget() {
   // Manage the active block state
   const [ activeBlock, setActiveBlock ] = useState(0)
 
-  // Extract the data for the active block
-  const widgetBlockData = CONTENT[activeBlock]
-
   return (
     <section>
       <article className="widget-wrapper">
         <div className="widget-buttons">
           {CONTENT.map((buttonContent, index) => (
             <WidgetButton
-              key={index}
+              key={buttonContent.id}
               active={index === activeBlock}
               onClick={() => setActiveBlock(index)}
             >
@@ -28,12 +25,10 @@ export default function Widget() {
           ))}
         </div>
 
-        {widgetBlockData && 
-          <WidgetBlock
-            title={widgetBlockData.title}
-            content={widgetBlockData.content}
-          />
-        }
+        <WidgetBlock
+          title={CONTENT[activeBlock].title}
+          content={CONTENT[activeBlock].content}
+        />
       </article>
     </section>
   )
