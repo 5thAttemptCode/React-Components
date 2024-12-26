@@ -1,80 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './style.css'
-import axios from 'axios'
+import useFileUpload from './customHooks/useFileUpload'
+import { FileInput } from './components/fileInput'
+import { ProgressBar } from './components/progressBar'
+import FileInfo from './components/fileInfo'
 
 
-export default function FileUploader() {
+export default function FileUploader({ uploadURL }) {
 
-  const [ file, setFile ] = useState(null)
-  const [ status, setStatus ] = useState("idle")
-  const [ uploadProgress, setUploadProgress ] = useState(0)
-
-  function handleFileChange(e){
-    if(e.target.files){
-      setFile(e.target.files[0])
-    }
-  }
-
-  async function handleFileUpload(){
-    if(!file) return
-
-    setStatus("uploading")
-    setUploadProgress(0)
-
-    const formData = new FormData()
-    formData.append("file", file)
-
-    try{
-      await axios.post("https://httpbin.org/post", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        onUploadProgress: (progressEvent) => {
-          const progress = progressEvent.total ? 
-            Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            : 0
-          setUploadProgress(progress)
-        }
-      })
-      setStatus("success")
-      setUploadProgress(100)
-      setTimeout(() => {
-        setFile(null)
-        setStatus("idle")
-        setUploadProgress(0)
-      }, 1500)
-
-    } catch(error){
-      setStatus("error")
-      setUploadProgress(0)
-      console.error("Upload failed:", error);
-    }
-  }
+  const { file, status, uploadProgress, handleFileChange, handleFileUpload } = useFileUpload(uploadURL)
 
   return (
     <div>
-      <input type="file" onChange={handleFileChange} />
-      {file && (
-        <div>
-          <p>File name: {file.name}</p>
-          <p>File size: {(file.size / 1024).toFixed(2)} KB</p>
-          <p>Type: {file.type}</p>
-        </div>
-      )}
+      <FileInput onChange={handleFileChange} />
+      <FileInfo file={file} />
+
       {file && status !=="uploading" && 
         <button onClick={handleFileUpload}>Upload</button>
       }
 
-      {status === "uploading" && (
-        <div className="progress-bar">
-          <div className="progress" style={{ width: `${uploadProgress}%`}}></div>
-          <p>{uploadProgress}% uploaded</p>
-        </div>
-      )}
+      {status === "uploading" && 
+        <ProgressBar progress={uploadProgress} />
+      }
 
       {status === "success" && (
         <p>Upload was successfull!</p>
       )}
+      
       {status === "error" && (
         <p>Error, something went wrong</p>
       )}

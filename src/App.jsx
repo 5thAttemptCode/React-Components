@@ -7,14 +7,16 @@ import DropdownComponent from './components/dropdown'
 import Sidebar from './components/sidebar'
 import SearchBar from './components/searchbar'
 import CopyToClipboard from './components/copyToClipboard'
+import FileUploader from './components/fileUploader'
 
 
 export default function App() {
   
   return (
     <>
-      <CopyToClipboard />
+      {/* <CopyToClipboard /> */}
       {/* <DropdownComponent /> */}
+      <FileUploader uploadURL="https://httpbin.org/post" />
       {/* <LightSwitch /> */}
       {/* <ModalComponent /> */}
       {/* <SearchBar /> */}
