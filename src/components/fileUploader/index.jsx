@@ -1,6 +1,6 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import './style.css'
+import axios from 'axios'
 
 
 export default function FileUploader() {
@@ -38,6 +38,12 @@ export default function FileUploader() {
       })
       setStatus("success")
       setUploadProgress(100)
+      setTimeout(() => {
+        setFile(null)
+        setStatus("idle")
+        setUploadProgress(0)
+      }, 1500)
+
     } catch(error){
       setStatus("error")
       setUploadProgress(0)
@@ -61,16 +67,16 @@ export default function FileUploader() {
 
       {status === "uploading" && (
         <div className="progress-bar">
-          <div className="progress" style={{ width: `${uploadProgress}`}}></div>
+          <div className="progress" style={{ width: `${uploadProgress}%`}}></div>
           <p>{uploadProgress}% uploaded</p>
         </div>
       )}
 
       {status === "success" && (
-        <p>SUCCESS</p>
+        <p>Upload was successfull!</p>
       )}
       {status === "error" && (
-        <p>fucked up..</p>
+        <p>Error, something went wrong</p>
       )}
     </div>
   )
