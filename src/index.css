@@ -28,8 +28,8 @@ body{
 button{
   cursor: pointer;
   outline: none;
-  border: none;
   background: none;
+  border: 1px solid var(--color);
 }
 
 section{
