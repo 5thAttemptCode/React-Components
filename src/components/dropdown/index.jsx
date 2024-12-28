@@ -1,18 +1,14 @@
 import React from 'react'
-import DropdownContent from './components/dropdownContent'
+import DropdownItems from './data'
 import DropdownMenu from './components/dropdownMenu'
-import { DropdownProvider } from './context'
 
 
 export default function DropdownComponent() {
 
   return (
-    <DropdownProvider>
-      <section>
-        <DropdownMenu buttonContent="Explore">
-          <DropdownContent />
-        </DropdownMenu>
-      </section>
-    </DropdownProvider>
+    <section>
+      <DropdownMenu buttonContent="Explore" dropdownContent={DropdownItems} />
+      <DropdownMenu buttonContent="Explore 2" dropdownContent={DropdownItems} />
+    </section>
   )
 }

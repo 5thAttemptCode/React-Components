@@ -1,14 +1,12 @@
-import { useContext } from "react"
-import { DropdownContext } from "../../context"
+import { useState } from 'react'
 
 
-export const useDropDown = () => {
+export function useDropdown() {
 
-  const context = useContext(DropdownContext)
+  const [ dropdownVisible, setDropdownVisible ] = useState(false)
 
-  if(!context) {
-    throw new err("useSidebar must be used within SidebarProvider")
-  }
+  const toggleDropdown = () => setDropdownVisible((prev) => !prev)
+  const closeDropdown = () => setDropdownVisible(false)
 
-  return context
+  return { dropdownVisible, toggleDropdown, closeDropdown }
 }
