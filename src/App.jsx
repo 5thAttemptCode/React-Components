@@ -8,6 +8,7 @@ import Sidebar from './components/sidebar'
 import SearchBar from './components/searchbar'
 import CopyToClipboard from './components/copyToClipboard'
 import FileUploader from './components/fileUploader'
+import WishList from './components/wishList'
 
 
 export default function App() {
@@ -16,13 +17,14 @@ export default function App() {
     <>
       {/* <CopyToClipboard /> */}
       {/* <DropdownComponent /> */}
-      <FileUploader uploadURL="https://httpbin.org/post" />
+      {/* <FileUploader uploadURL="https://httpbin.org/post" /> */}
       {/* <LightSwitch /> */}
       {/* <ModalComponent /> */}
       {/* <SearchBar /> */}
       {/* <Sidebar /> */}
       {/* <TimeDate /> */}
       {/* <Widget /> */}
+      <WishList />
     </>
   )
 }
