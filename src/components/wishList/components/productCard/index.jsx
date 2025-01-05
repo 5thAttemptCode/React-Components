@@ -5,6 +5,10 @@ import LikeButton from '../likeButton'
 
 export default function ProductCard({ itemArray }) {
 
+  if(!itemArray){
+    return <p>No products available</p>
+  }
+
   return (
     <ul className='product-card-ul'>
       {itemArray.map(item => 
