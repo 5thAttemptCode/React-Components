@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from "react"
+import SearchInput from "../searchInput"
+import SearchResult from "../searchResult"
 
 
 export default function SearchBar({ data = [] }) {
@@ -18,21 +20,8 @@ export default function SearchBar({ data = [] }) {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchText}
-        onChange={handleChange}
-      />
-      <ul>
-        {searchText && filteredData.length === 0 ? (
-          <p>Sorry, no match</p>
-        ) : (
-          filteredData.map((item, index) => 
-            <li key={index}>{item.name}</li>
-          )
-        )}
-      </ul>
+      <SearchInput value={searchText} onChange={handleChange} />
+      <SearchResult results={filteredData} searchText={searchText} />
     </div>
   )
 }
