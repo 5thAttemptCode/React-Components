@@ -1,0 +1,24 @@
+.input-container{
+  position: relative;
+
+  .invalid{
+    border: 2px solid #ff0000;
+  }
+  
+  .error-msg{
+    position: absolute;
+    font-size: 14px;
+    background: #c8c8c8;
+    color: #ff0000;
+    width: 100%;
+    max-width: 200px;
+    margin-left: 1rem;
+    padding: 0.3rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .input:focus + .error-msg {
+    opacity: 1;
+  }
+}

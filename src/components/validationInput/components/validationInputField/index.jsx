@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../../style.css'
 
 
 export default function ValidationInput({
@@ -25,7 +26,7 @@ export default function ValidationInput({
   }
 
   return (
-    <div className="validation-input">
+    <div className="input-container">
       <input
         type={type}
         value={value}
@@ -33,7 +34,7 @@ export default function ValidationInput({
         onChange={handleChange}
         className={`input ${isValid ? "" : "invalid"}`}
       />
-      {!isValid && <span className="error-message">{errorMsg}</span>}
+      {!isValid && <span className="error-msg">{errorMsg}</span>}
     </div>
   )
 }
