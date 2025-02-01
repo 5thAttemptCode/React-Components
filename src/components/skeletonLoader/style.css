@@ -1,0 +1,23 @@
+.skeleton-loader {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .skeleton-item {
+    height: 20px;
+    background: linear-gradient(90deg, #ddd 25%, #eee 50%, #ddd 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 4px;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
